@@ -17,7 +17,7 @@ public class HealthController {
 	HealthRepository hr;
 	
 	@RequestMapping(path = "/health/covid-19/daily", method = RequestMethod.GET)
-	public Map<String, Object> getDailyCovid() {
+	public Map<String, Object> getDailyCovid() throws Exception {
 		Map<String, Object> response = hr.getDailyCovid();
 		return response;
 	}

@@ -41,6 +41,7 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		System.out.println(result);
 		Map<String, Object> so = result.toMap();
 		return so;
 	}
