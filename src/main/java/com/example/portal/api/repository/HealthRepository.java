@@ -22,10 +22,10 @@ public class HealthRepository {
 			URL url = new URL("https://covid19.th-stat.com/json/covid19v2/getTodayCases.json");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.defaultCharset()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -55,7 +55,7 @@ public class HealthRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -84,7 +84,7 @@ public class HealthRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
