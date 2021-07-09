@@ -15,6 +15,180 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class HealthRepository {
+	
+	public Map<String, Object> getWasteStat2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/wastesurveil/default/data?year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getInGreen2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/envgchos/envgchos/data?atype=1&year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getOutGreen2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/envgchos/envgchos/data?atype=2&year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getHealthy2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/envrisk/data/data?year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getServiceLevel2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/dashboard/ehabasic/data?year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getDrinkingWaterQuality2020() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://dashboard.anamai.moph.go.th/envwaterquality/envwaterquality/data?year=2020");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
 
 	public Map<String, Object> getDailyCovid() {
 		StringBuilder responseStrBuilder = new StringBuilder();
