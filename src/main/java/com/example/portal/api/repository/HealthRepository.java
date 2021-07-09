@@ -7,8 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Repository;
@@ -16,7 +18,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class HealthRepository {
 	
-	public Map<String, Object> getWasteStat2020() {
+	public List<Object> getWasteStat2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/wastesurveil/default/data?year=2020");
@@ -41,11 +43,12 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 	
-	public Map<String, Object> getInGreen2020() {
+	public List<Object> getInGreen2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/envgchos/envgchos/data?atype=1&year=2020");
@@ -70,11 +73,12 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 	
-	public Map<String, Object> getOutGreen2020() {
+	public List<Object> getOutGreen2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/envgchos/envgchos/data?atype=2&year=2020");
@@ -99,11 +103,12 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 	
-	public Map<String, Object> getHealthy2020() {
+	public List<Object> getHealthy2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/envrisk/data/data?year=2020");
@@ -128,11 +133,12 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 	
-	public Map<String, Object> getServiceLevel2020() {
+	public List<Object> getServiceLevel2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/dashboard/ehabasic/data?year=2020");
@@ -157,11 +163,12 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 	
-	public Map<String, Object> getDrinkingWaterQuality2020() {
+	public List<Object> getDrinkingWaterQuality2020() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://dashboard.anamai.moph.go.th/envwaterquality/envwaterquality/data?year=2020");
@@ -186,7 +193,8 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		Map<String, Object> so = result.toMap();
+		JSONArray array = (JSONArray) result.get("data");
+		List<Object> so = array.toList();
 		return so;
 	}
 
@@ -215,7 +223,6 @@ public class HealthRepository {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject(responseStrBuilder.toString());
-		System.out.println(result);
 		Map<String, Object> so = result.toMap();
 		return so;
 	}

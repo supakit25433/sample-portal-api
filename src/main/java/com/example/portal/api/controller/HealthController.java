@@ -1,5 +1,6 @@
 package com.example.portal.api.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,38 +18,38 @@ public class HealthController {
 	HealthRepository hr;
 	
 	@RequestMapping(path = "/anamai/waste2020", method = RequestMethod.GET)
-	public Map<String, Object> getWasteStat2020() {
-		Map<String, Object> response = hr.getWasteStat2020();
+	public List<Object> getWasteStat2020() {
+		List<Object> response = hr.getWasteStat2020();
 		return response;
 	}
 	
 	@RequestMapping(path = "/anamai/ingreen2020", method = RequestMethod.GET)
-	public Map<String, Object> getInGreen2020() {
-		Map<String, Object> response = hr.getInGreen2020();
+	public List<Object> getInGreen2020() {
+		List<Object> response = hr.getInGreen2020();
 		return response;
 	}
 	
 	@RequestMapping(path = "/anamai/outgreen2020", method = RequestMethod.GET)
-	public Map<String, Object> getOutGreen2020() {
-		Map<String, Object> response = hr.getOutGreen2020();
+	public List<Object> getOutGreen2020() {
+		List<Object> response = hr.getOutGreen2020();
 		return response;
 	}
 	
 	@RequestMapping(path = "/anamai/healthy2020", method = RequestMethod.GET)
-	public Map<String, Object> getHealthy2020() {
-		Map<String, Object> response = hr.getHealthy2020();
+	public List<Object> getHealthy2020() {
+		List<Object> response = hr.getHealthy2020();
 		return response;
 	}
 	
 	@RequestMapping(path = "/anamai/servicelevel2020", method = RequestMethod.GET)
-	public Map<String, Object> getServiceLevel2020() {
-		Map<String, Object> response = hr.getServiceLevel2020();
+	public List<Object> getServiceLevel2020() {
+		List<Object> response = hr.getServiceLevel2020();
 		return response;
 	}
 	
 	@RequestMapping(path = "/anamai/drinkingwaterquality2020", method = RequestMethod.GET)
-	public Map<String, Object> getDrinkingWaterQuality2020() {
-		Map<String, Object> response = hr.getDrinkingWaterQuality2020();
+	public List<Object> getDrinkingWaterQuality2020() {
+		List<Object> response = hr.getDrinkingWaterQuality2020();
 		return response;
 	}
 	
