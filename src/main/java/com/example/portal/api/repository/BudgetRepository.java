@@ -22,10 +22,10 @@ public class BudgetRepository {
 			URL url = new URL("https://opend.data.go.th/govspending/bbministry?api-key=JCizH1CqrBBt8WnUEb558zNgz9SYy1TP");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.defaultCharset()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("utf-8")));
 				String line = "";
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -165,6 +165,35 @@ public class BudgetRepository {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://opend.data.go.th/moc/juristic?api-key=JCizH1CqrBBt8WnUEb558zNgz9SYy1TP&juristic_id=0105537004444");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Content-Type", "application/json; utf-8");
+			int responseCode = connection.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.defaultCharset()));
+				String line = "";
+				while((line = br.readLine()) != null) {
+					responseStrBuilder.append(line);	
+				}
+				connection.getInputStream().close();
+			}
+			connection.disconnect();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject(responseStrBuilder.toString());
+		Map<String, Object> so = result.toMap();
+		return so;
+	}
+	
+	public Map<String, Object> getPublicDebt() {
+		StringBuilder responseStrBuilder = new StringBuilder();
+		try {
+			URL url = new URL("https://www.pdmo.go.th/pdmows/api/3rd/public-debt-all");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			connection.setRequestProperty("Content-Type", "application/json; utf-8");
