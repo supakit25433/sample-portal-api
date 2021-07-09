@@ -7,36 +7,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.portal.api.repository.PoliticsRepository;
+import com.example.portal.api.repository.InteriorRepository;
 
 @RestController
-@RequestMapping("/v1")
-public class PoliticsController {
+@RequestMapping("/v1/interior")
+public class InteriorController {
 
 	@Autowired
-	PoliticsRepository pr;
+	InteriorRepository pr;
 	
-	@RequestMapping(path = "/politics/localoffice/location", method = RequestMethod.GET)
+	@RequestMapping(path = "/local/office/location", method = RequestMethod.GET)
 	public Map<String, Object> getProvincialLocalOfficeLocation() {
 		Map<String, Object> ploll = pr.getProvincialLocalOfficeLocation();
 		return ploll;
 	}
 	
-	@RequestMapping(path = "/politics/organizationoffice/location", method = RequestMethod.GET)
+	@RequestMapping(path = "/organization/office/location", method = RequestMethod.GET)
 	public Map<String, Object> getLocalAdministrativeOrganizationOfficeLocation() {
 		Map<String, Object> laooll = pr.getLocalAdministrativeOrganizationOfficeLocation();
 		return laooll;
 	}
 	
-	@RequestMapping(path = "/politics/organizationoffice/website", method = RequestMethod.GET)
+	@RequestMapping(path = "/organization/office/website", method = RequestMethod.GET)
 	public Map<String, Object> getLocalAdministrativeOrganizationOfficeWebsite() {
 		Map<String, Object> laoowl = pr.getLocalAdministrativeOrganizationOfficeWebsite();
 		return laoowl;
 	}
 	
-	@RequestMapping(path = "/politics/organizationoffice/code", method = RequestMethod.GET)
+	@RequestMapping(path = "/organization/office/code", method = RequestMethod.GET)
 	public Map<String, Object> getLocalAdministrativeOrganizationOfficeCode() {
 		Map<String, Object> laoocl = pr.getLocalAdministrativeOrganizationOfficeCode();
+		return laoocl;
+	}
+	
+	@RequestMapping(path = "/school/location", method = RequestMethod.GET)
+	public Map<String, Object> getLocalAdministrativeOrganizationSchoolLocation() {
+		Map<String, Object> laoocl = pr.getLocalAdministrativeOrganizationSchoolLocation();
 		return laoocl;
 	}
 	
