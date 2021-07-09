@@ -70,7 +70,7 @@ public class EducationController {
 		return dnsl;
 	}
 	
-	// long load
+	// long load & slow response
 	@RequestMapping(path = "/university/graduate/number/byinstitution/2562", method = RequestMethod.GET)
 	public List<Object> getNumberOfGraduateByInstitution2562() {
 		List<Object> dnsl = er.getNumberOfGraduateByInstitution2562();
@@ -101,35 +101,30 @@ public class EducationController {
 		return dnsl;
 	}
 	
-	// server error - not found
 	@RequestMapping(path = "/researcher/list/economicanimal", method = RequestMethod.GET)
 	public List<Object> getResearcherListOfEconomicAnimal() {
 		List<Object> dnsl = er.getResearcherListOfEconomicAnimal();
 		return dnsl;
 	}
 	
-	// server error - not found
 	@RequestMapping(path = "/researcher/list/energy", method = RequestMethod.GET)
 	public List<Object> getResearcherListOfEnergy() {
 		List<Object> dnsl = er.getResearcherListOfEnergy();
 		return dnsl;
 	}
 	
-	// server error - not found
 	@RequestMapping(path = "/researcher/list/technology", method = RequestMethod.GET)
 	public List<Object> getResearcherListOfTechnology() {
 		List<Object> dnsl = er.getResearcherListOfTechnology();
 		return dnsl;
 	}
 	
-	// server error - not found
 	@RequestMapping(path = "/researcher/list/watermanagement", method = RequestMethod.GET)
 	public List<Object> getResearcherListOfWaterManagement() {
 		List<Object> dnsl = er.getResearcherListOfWaterManagement();
 		return dnsl;
 	}
 	
-	// server error - not found
 	@RequestMapping(path = "/researcher/list/zerowaste", method = RequestMethod.GET)
 	public List<Object> getResearcherListOfZeroWaste() {
 		List<Object> dnsl = er.getResearcherListOfZeroWaste();

@@ -25,7 +25,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -54,7 +54,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -83,7 +83,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -112,7 +112,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -141,7 +141,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -170,7 +170,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -199,7 +199,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -228,7 +228,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -257,7 +257,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -277,7 +277,6 @@ public class EducationRepository {
 		return al;
 	}
 	
-	// Slow Response
 	public List<Object> getNumberOfGraduateByInstitution2562() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -287,7 +286,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -316,7 +315,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -345,7 +344,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -374,7 +373,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -403,7 +402,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -423,10 +422,8 @@ public class EducationRepository {
 		return al;
 	}
 	
-	// Response --> Text
 	public List<Object> getResearcherListOfEconomicAnimal() {
-//		StringBuilder responseStrBuilder = new StringBuilder();
-		String responseStrBuilder = "";
+		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
 			URL url = new URL("https://api.nriis.go.th/service/service/OpenData/v1/DataSet/Researcher_EcoAnimal");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -434,10 +431,10 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
-					responseStrBuilder = responseStrBuilder + line;	
+					responseStrBuilder.append(line);	
 				}
 				connection.getInputStream().close();
 			}
@@ -449,12 +446,11 @@ public class EducationRepository {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		JSONArray result = new JSONArray(responseStrBuilder);
+		JSONArray result = new JSONArray(responseStrBuilder.toString());
 		List<Object> al = result.toList();
 		return al;
 	}
 	
-	// Response --> Text
 	public List<Object> getResearcherListOfEnergy() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -464,7 +460,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -484,7 +480,6 @@ public class EducationRepository {
 		return al;
 	}
 	
-	// Response --> Text
 	public List<Object> getResearcherListOfTechnology() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -494,7 +489,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -514,7 +509,6 @@ public class EducationRepository {
 		return al;
 	}
 	
-	// Response --> Text
 	public List<Object> getResearcherListOfWaterManagement() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -524,7 +518,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
@@ -544,7 +538,6 @@ public class EducationRepository {
 		return al;
 	}
 	
-	// Response --> Text
 	public List<Object> getResearcherListOfZeroWaste() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -554,7 +547,7 @@ public class EducationRepository {
 			connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 			int responseCode = connection.getResponseCode();
 			if(responseCode == HttpURLConnection.HTTP_OK) {		
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("TIS-620")));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 				String line = "";	
 				while((line = br.readLine()) != null) {
 					responseStrBuilder.append(line);	
