@@ -207,7 +207,6 @@ public class AgricultureRepository {
 		return al;
 	}
 
-	// problem : unable to find valid certification path to requested target
 	public List<Object> getRoyalRainMakingActionPlan() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -240,7 +239,6 @@ public class AgricultureRepository {
 		return response;
 	}
 
-	// problem : unable to find valid certification path to requested target
 	public List<Object> getRoyalRainMakingResults() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -273,7 +271,6 @@ public class AgricultureRepository {
 		return response;
 	}
 
-	// problem : unable to find valid certification path to requested target
 	public List<Object> getRoyalRainMakingRainyArea() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {
@@ -306,7 +303,6 @@ public class AgricultureRepository {
 		return response;
 	}
 
-	// problem : unable to find valid certification path to requested target
 	public List<Object> getRoyalRainMakingTargetArea() {
 		StringBuilder responseStrBuilder = new StringBuilder();
 		try {

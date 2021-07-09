@@ -53,24 +53,28 @@ public class AgricultureController {
 		return response;
 	}
 	
+	// problem : unable to find valid certification path to requested target
 	@RequestMapping(path = "/royalrainmaking/actionplan", method = RequestMethod.GET)
 	public List<Object> getRoyalRainMakingActionPlan() {
 		List<Object> response = ar.getRoyalRainMakingActionPlan();
 		return response;
 	}
 	
+	// problem : unable to find valid certification path to requested target
 	@RequestMapping(path = "/royalrainmaking/results", method = RequestMethod.GET)
 	public List<Object> getRoyalRainMakingResults() {
 		List<Object> response = ar.getRoyalRainMakingResults();
 		return response;
 	}
 	
+	// problem : unable to find valid certification path to requested target
 	@RequestMapping(path = "/royalrainmaking/rainyarea", method = RequestMethod.GET)
 	public List<Object> getRoyalRainMakingRainyArea() {
 		List<Object> response = ar.getRoyalRainMakingRainyArea();
 		return response;
 	}
 	
+	// problem : unable to find valid certification path to requested target
 	@RequestMapping(path = "/royalrainmaking/targetarea", method = RequestMethod.GET)
 	public List<Object> getRoyalRainMakingTargetArea() {
 		List<Object> response = ar.getRoyalRainMakingTargetArea();
