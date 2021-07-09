@@ -16,7 +16,6 @@ public class ResourceController {
 	@Autowired
 	ResourceRepository rr;
 	
-	// structure problem - JSONArray must start with [ but it start with comment that occurs error.
 	@RequestMapping(path = "/project/cdm", method = RequestMethod.GET)
 	public List<Object> getCDMProject() {
 		List<Object> ul = rr.getCDMProject();
