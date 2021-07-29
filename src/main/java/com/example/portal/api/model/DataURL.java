@@ -31,6 +31,9 @@ public class DataURL {
 	private String name_keyword;
 	private String search_type;
 	private String sell_type;
+	private String juristic_id;
+	private String resource_id;
+	private String limit;
 
 	public Integer getAuto_id() {
 		return auto_id;
@@ -175,5 +178,30 @@ public class DataURL {
 	public void setSell_type(String sell_type) {
 		this.sell_type = sell_type;
 	}
+
+	public String getJuristic_id() {
+		return juristic_id;
+	}
+
+	public void setJuristic_id(String juristic_id) {
+		this.juristic_id = juristic_id;
+	}
+
+	public String getResource_id() {
+		return resource_id;
+	}
+
+	public void setResource_id(String resource_id) {
+		this.resource_id = resource_id;
+	}
+
+	public String getLimit() {
+		return limit;
+	}
+
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+	
 
 }

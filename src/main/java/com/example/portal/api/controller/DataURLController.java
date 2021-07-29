@@ -24,7 +24,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.example.portal.api.model.DataURL;
 import com.example.portal.api.model.PostVariable;
+import com.example.portal.api.model.ResponseUrl;
 import com.example.portal.api.repository.DataURLRepository;
+import com.example.portal.api.repository.ResponseUrlRepository;
 
 @RestController
 @RequestMapping("/v1/driven")
@@ -32,6 +34,9 @@ public class DataURLController {
 
 	@Autowired
 	DataURLRepository dur;
+	
+	@Autowired
+	ResponseUrlRepository rur;
 	
 	@RequestMapping(path = "/overall", method = RequestMethod.GET)
 	public List<DataURL> getAllData() {
@@ -50,18 +55,21 @@ public class DataURLController {
 	@RequestMapping(path = "/post/JSONArray", method = RequestMethod.POST)
 	public List<Object> postJSONArray(@RequestBody PostVariable v) {
 		DataURL du = dur.searchByJSONArrayPath(v.getPath_variable());
+		int responseCode = 0;
+		String responseMessage = "";
 		if(du == null) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Not found information that path_variable : " + v.getPath_variable() + " in this database");
 		} else {
 			StringBuilder responseStrBuilder = new StringBuilder();
 			try {
-				URL url = new URL(du.getUrl()+"?year="+du.getYear()+"&month="+du.getMonth()+"&keyword="+du.getKeyword()+"&atype="+du.getAtype()+"&type_news="+du.getType_news()+"&fiscal_year="+du.getFiscal_year()+"&member_type_id="+du.getMember_type_id()+"&name_keyword="+du.getName_keyword()+"&search_type="+du.getSearch_type()+"&sell_type="+du.getSell_type());
+				URL url = new URL(du.getUrl()+"?year="+du.getYear()+"&month="+du.getMonth()+"&keyword="+du.getKeyword()+"&atype="+du.getAtype()+"&type_news="+du.getType_news()+"&fiscal_year="+du.getFiscal_year()+"&member_type_id="+du.getMember_type_id()+"&name_keyword="+du.getName_keyword()+"&search_type="+du.getSearch_type()+"&sell_type="+du.getSell_type()+"&juristic_id="+du.getJuristic_id()+"&resource_id="+du.getResource_id()+"&limit="+du.getLimit()+"&api-key="+du.getApi_key());
 				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 				connection.setRequestMethod("GET");
 				connection.setRequestProperty("Ocp-Apim-Subscription-Key", du.getOcp_Apim_Subscription_Key());
 				connection.setRequestProperty("api-key", du.getApi_key());
 				connection.setRequestProperty("Content-Type", "application/json");
-				int responseCode = connection.getResponseCode();
+				responseCode = connection.getResponseCode();
+				responseMessage = responseMessage + connection.getResponseMessage();
 				if(responseCode == HttpURLConnection.HTTP_OK) {		
 					BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 					String line = "";	
@@ -77,6 +85,24 @@ public class DataURLController {
 				e.printStackTrace();
 			} catch (JSONException e) {
 				e.printStackTrace();
+			}
+			boolean found = rur.haveInDbByPathVariable(v.getPath_variable());
+			if(found == false) {
+				ResponseUrl rd = new ResponseUrl();
+				rd.setPath_variable(du.getPath_variable());
+				rd.setResponse_type(du.getResponse_type());
+				rd.setResponse_code(responseCode);
+				rd.setResponse_message(responseMessage);
+				rd.setResponse_data(responseStrBuilder.toString());
+				rur.addResponseUrl(rd);
+			} else {
+				ResponseUrl rd = new ResponseUrl();
+				rd.setPath_variable(du.getPath_variable());
+				rd.setResponse_type(du.getResponse_type());
+				rd.setResponse_code(responseCode);
+				rd.setResponse_message(responseMessage);
+				rd.setResponse_data(responseStrBuilder.toString());
+				rur.updateResponseUrl(rd);
 			}
 			JSONArray jo = new JSONArray(responseStrBuilder.toString());
 			List<Object> response = jo.toList();
@@ -87,18 +113,23 @@ public class DataURLController {
 	@RequestMapping(path = "/post/JSONObject", method = RequestMethod.POST)
 	public Map<String, Object> postJSONObject(@RequestBody PostVariable v) {
 		DataURL du = dur.searchByJSONObjectPath(v.getPath_variable());
+		int responseCode = 0;
+		String responseMessage = "";
 		if(du == null) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Not found information that path_variable : " + v.getPath_variable() + " in this database");
 		} else {
 			StringBuilder responseStrBuilder = new StringBuilder();
 			try {
-				URL url = new URL(du.getUrl()+"?year="+du.getYear()+"&month="+du.getMonth()+"&keyword="+du.getKeyword()+"&atype="+du.getAtype()+"&type_news="+du.getType_news()+"&fiscal_year="+du.getFiscal_year()+"&member_type_id="+du.getMember_type_id()+"&name_keyword="+du.getName_keyword()+"&search_type="+du.getSearch_type()+"&sell_type="+du.getSell_type());
+				URL url = new URL(du.getUrl()+"?year="+du.getYear()+"&month="+du.getMonth()+"&keyword="+du.getKeyword()+"&atype="+du.getAtype()+"&type_news="+du.getType_news()+"&fiscal_year="+du.getFiscal_year()+"&member_type_id="+du.getMember_type_id()+"&name_keyword="+du.getName_keyword()+"&search_type="+du.getSearch_type()+"&sell_type="+du.getSell_type()+"&juristic_id="+du.getJuristic_id()+"&resource_id="+du.getResource_id()+"&limit="+du.getLimit()+"&api-key="+du.getApi_key());
 				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				System.out.println(url);
 				connection.setRequestMethod("GET");
 				connection.setRequestProperty("Ocp-Apim-Subscription-Key", du.getOcp_Apim_Subscription_Key());
 				connection.setRequestProperty("api-key", du.getApi_key());
+				System.out.println(du.getApi_key());
 				connection.setRequestProperty("Content-Type", "application/json");
-				int responseCode = connection.getResponseCode();
+				responseCode = connection.getResponseCode();
+				responseMessage = responseMessage + connection.getResponseMessage();
 				if(responseCode == HttpURLConnection.HTTP_OK) {		
 					BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), Charset.forName("UTF-8")));
 					String line = "";	
@@ -115,6 +146,26 @@ public class DataURLController {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+			boolean found = rur.haveInDbByPathVariable(v.getPath_variable());
+			System.out.println(found);
+			if(found == false) {
+				ResponseUrl rd = new ResponseUrl();
+				rd.setPath_variable(du.getPath_variable());
+				rd.setResponse_type(du.getResponse_type());
+				rd.setResponse_code(responseCode);
+				rd.setResponse_message(responseMessage);
+				rd.setResponse_data(responseStrBuilder.toString());
+				rur.addResponseUrl(rd);
+			} else {
+				ResponseUrl rd = new ResponseUrl();
+				rd.setPath_variable(du.getPath_variable());
+				rd.setResponse_type(du.getResponse_type());
+				rd.setResponse_code(responseCode);
+				rd.setResponse_message(responseMessage);
+				rd.setResponse_data(responseStrBuilder.toString());
+				rur.updateResponseUrl(rd);
+			}
+			System.out.println(responseStrBuilder.toString());
 			JSONObject jo = new JSONObject(responseStrBuilder.toString());
 			Map<String, Object> response = jo.toMap();
 			return response;
