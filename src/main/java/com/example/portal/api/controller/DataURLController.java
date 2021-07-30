@@ -38,20 +38,23 @@ public class DataURLController {
 	@Autowired
 	ResponseUrlRepository rur;
 	
+	// จะเป็น API method GET สำหรับการเรียกดูข้อมูลทั้งหมดของ path API ที่ถูกจัดเก็บไว้ภายใน Database
 	@RequestMapping(path = "/overall", method = RequestMethod.GET)
 	public List<DataURL> getAllData() {
 		List<DataURL> list = dur.getAllData();
 		return list;
 	}
 	
+	// จะเป็น API method GET ใช้สำหรับการเรียกดูข้อมูลของ Path API ที่เราจัดเก็บไว้ภายใน Database แบบเจาะจง
+	// เราจะส่ง path variable ไปภายใน URL path เพื่อนำไปอ่านข้อมูลจาก Database
 	@RequestMapping(path = "/specific/data/{path_variable}", method = RequestMethod.GET)
 	public DataURL getDataByKeyword(@PathVariable String path_variable) {
 		DataURL du = dur.searchByPath(path_variable);
 		return du;
 	}
 	
-	// เป็นไปได้ไหมที่เราจะสามารถเปลี่ยน return type ไปตามเงื่อนไข
-	
+	// API method POST โดยจะมีการส่ง request body เป็น path_variable ไปด้วย และหลังจากเรียกใช้งาน API สำเร็จ ข้อมูลที่ได้ (response) จะถูกบันทึกลงภายใน Database
+	// แยก API method POST เป็น 2 ตัว เนื่องจาก API แต่ละตัว ส่ง response กลับมาไม่เหมือนกัน
 	@RequestMapping(path = "/post/JSONArray", method = RequestMethod.POST)
 	public List<Object> postJSONArray(@RequestBody PostVariable v) {
 		DataURL du = dur.searchByJSONArrayPath(v.getPath_variable());
@@ -110,6 +113,8 @@ public class DataURLController {
 		}
 	}
 	
+	// API method POST โดยจะมีการส่ง request body เป็น path_variable ไปด้วย และหลังจากเรียกใช้งาน API สำเร็จ ข้อมูลที่ได้ (response) จะถูกบันทึกลงภายใน Database
+	// แยก API method POST เป็น 2 ตัว เนื่องจาก API แต่ละตัว ส่ง response กลับมาไม่เหมือนกัน
 	@RequestMapping(path = "/post/JSONObject", method = RequestMethod.POST)
 	public Map<String, Object> postJSONObject(@RequestBody PostVariable v) {
 		DataURL du = dur.searchByJSONObjectPath(v.getPath_variable());
@@ -172,6 +177,8 @@ public class DataURLController {
 		}
 	}
 	
+	// API method GET ใช้สำหรับการทดสอบว่า เราสามารถดึงข้อมูลจาก Database และนำมาใช้งานสำหรับการเรียกใช้งาน API ได้หรือไม่
+	// เราจะส่ง path variable ไปภายใน URL path เพื่อนำไปอ่านข้อมูลจาก Database
 	@RequestMapping(path = "/response/JSONArray/{path_variable}", method = RequestMethod.GET)
 	public List<Object> getJSONArray(@PathVariable String path_variable) {
 		DataURL du = dur.searchByJSONArrayPath(path_variable);
@@ -209,6 +216,8 @@ public class DataURLController {
 		}
 	}
 	
+	// API method GET ใช้สำหรับการทดสอบว่า เราสามารถดึงข้อมูลจาก Database และนำมาใช้งานสำหรับการเรียกใช้งาน API ได้หรือไม่
+	// เราจะส่ง path variable ไปภายใน URL path เพื่อนำไปอ่านข้อมูลจาก Database
 	@RequestMapping(path = "/response/JSONObject/{path_variable}", method = RequestMethod.GET)
 	public Map<String, Object> getJSONObject(@PathVariable String path_variable) {
 		DataURL du = dur.searchByJSONObjectPath(path_variable);
